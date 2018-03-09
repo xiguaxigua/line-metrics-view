@@ -1,2 +1,9 @@
-# line-metrics-view
- 直线指标展示组件
+## line-metrics-view
+
+> 
+
+### start
+
+dev：  `npm run dev`
+
+build：  `npm run build`
