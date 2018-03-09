@@ -1,6 +1,6 @@
 ## line-metrics-view
 
-> 指标横向展示图 https://jsfiddle.net/61gcwfeq/
+> 指标横向展示图
 
 ### INSTALL
 
