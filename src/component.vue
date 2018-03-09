@@ -195,8 +195,12 @@ $border-color: #ccc;
       border-radius: 4px;
       border: 1px solid $border-color;
 
-      .line-metrics-view__tip-item-num-percent {
-        color: #888;
+      .line-metrics-view__tip-item-num {
+        white-space: nowrap;
+
+        .line-metrics-view__tip-item-num-percent {
+          color: #888;
+        }
       }
 
       .line-metrics-view__tip-item-label {
