@@ -8,7 +8,12 @@
         :style="getTipLeft(item)"
         :key="index">
         <div class="line-metrics-view__tip-item-label">{{ item.label }}</div>
-        <div class="line-metrics-view__tip-item-num">{{ getThousandFormat(item.value) }}({{ item.percent }})</div>
+        <div class="line-metrics-view__tip-item-num">
+          {{ getThousandFormat(item.value) }}
+          <span class="line-metrics-view__tip-item-num-percent">
+            ({{ item.percent }})
+          </span>
+        </div>
       </div>
     </div>
     <div class="line-metrics-view__arrow" ref="arrow">
@@ -189,6 +194,10 @@ $border-color: #ccc;
       padding: 4px;
       border-radius: 4px;
       border: 1px solid $border-color;
+
+      .line-metrics-view__tip-item-num-percent {
+        color: #888;
+      }
 
       .line-metrics-view__tip-item-label {
         position: relative;
