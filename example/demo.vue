@@ -1,6 +1,6 @@
 <template>
   <div class="page-demo">
-    <comp></comp>
+    <comp :data="lineData" ref="com"></comp>
   </div>
 </template>
 
@@ -9,6 +9,35 @@ import Comp from '../src/component'
 
 export default {
   name: 'Demo',
+
+  data () {
+    return {
+      lineData: [
+        {
+          label: 'First',
+          value: 1
+        },
+        {
+          label: 'Second',
+          value: 23
+        },
+        {
+          label: 'Third',
+          value: 123
+        },
+        {
+          label: 'Forth',
+          value: 1111
+        }
+      ]
+    }
+  },
+
+  mounted () {
+    window.addEventListener('resize', () => {
+      this.$refs.com.resize()
+    })
+  },
 
   components: { Comp }
 }

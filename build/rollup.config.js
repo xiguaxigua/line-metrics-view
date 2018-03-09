@@ -11,7 +11,7 @@ const shell = require('shelljs')
 const autoprefixer = require('autoprefixer')
 
 shell.mkdir('lib')
-shell.cp('-r', 'src/asserts', 'lib/asserts')
+// shell.cp('-r', 'src/asserts', 'lib/asserts')
 
 compList.forEach(item => {
   let vueSettings = {}

@@ -1,7 +1,7 @@
 import Component from './component'
 
 function install (Vue, _) {
-  Vue.component('Component', Component)
+  Vue.component('LineMetricsView', Component)
 }
 
 export default Component
