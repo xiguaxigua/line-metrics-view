@@ -119,8 +119,8 @@ export default {
       })
       dataList.forEach((d, i) => {
         const leftDistance = i ? tipLeftList[i - 1] : 0
-        d.left = leftDistance < centerPointList[i] - tipWidthList[i] / 2
-          ? centerPointList[i] - tipWidthList[i] / 2 + TIP_MARGIN
+        d.left = leftDistance < centerPointList[i] - tipWidthList[i] / 2 - TIP_MARGIN
+          ? centerPointList[i] - tipWidthList[i] / 2
           : leftDistance + TIP_MARGIN
         d.x1 = d.left + tipWidthList[i] / 2
         tipLeftList.push(d.left + tipWidthList[i])
