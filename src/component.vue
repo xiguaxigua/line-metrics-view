@@ -120,7 +120,7 @@ export default {
       dataList.forEach((d, i) => {
         const leftDistance = i ? tipLeftList[i - 1] : 0
         d.left = leftDistance < centerPointList[i] - tipWidthList[i] / 2
-          ? centerPointList[i] - tipWidthList[i] / 2
+          ? centerPointList[i] - tipWidthList[i] / 2 + TIP_MARGIN
           : leftDistance + TIP_MARGIN
         d.x1 = d.left + tipWidthList[i] / 2
         tipLeftList.push(d.left + tipWidthList[i])
@@ -173,7 +173,7 @@ export default {
 $border-color: #ccc;
 
 .line-metrics-view {
-  font-size: 14px;
+  font-size: 12px;
   padding-right: 115px;
   position: relative;
 
