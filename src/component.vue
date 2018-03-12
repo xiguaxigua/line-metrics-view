@@ -45,9 +45,6 @@ import {
   COLOR
 } from './constants'
 
-const TIP_MARGIN = 10
-const LINE_GAP = 2
-
 export default {
   name: 'LineMetricsView',
 
@@ -56,12 +53,18 @@ export default {
       required: true,
       type: Array
     },
-    color: Array
+    color: Array,
+    tipMargin: {
+      type: Number,
+      default: 10
+    },
+    lineGap: {
+      type: Number,
+      default: 2
+    }
   },
 
   data () {
-    this.lineGap = LINE_GAP
-
     return {
       dataList: [],
       y2: 0,
@@ -102,7 +105,8 @@ export default {
           tipItem,
           lineItem
         },
-        dataList
+        dataList,
+        tipMargin
       } = this
       const centerPointList = []
       const tipWidthList = []
@@ -119,9 +123,9 @@ export default {
       })
       dataList.forEach((d, i) => {
         const leftDistance = i ? tipLeftList[i - 1] : 0
-        d.left = leftDistance < centerPointList[i] - tipWidthList[i] / 2 - TIP_MARGIN
+        d.left = leftDistance < centerPointList[i] - tipWidthList[i] / 2 - tipMargin
           ? centerPointList[i] - tipWidthList[i] / 2
-          : leftDistance + TIP_MARGIN
+          : leftDistance + tipMargin
         d.x1 = d.left + tipWidthList[i] / 2
         tipLeftList.push(d.left + tipWidthList[i])
       })
@@ -146,9 +150,10 @@ export default {
       const {
         $refs: {
           arrow
-        }
+        },
+        lineGap
       } = this
-      this.y2 = arrow.clientHeight - LINE_GAP
+      this.y2 = arrow.clientHeight - lineGap
     },
 
     getThousandFormat (value) {
