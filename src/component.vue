@@ -65,7 +65,8 @@ export default {
     percentDigit: {
       type: Number,
       default: 1
-    }
+    },
+    innerPercent: Boolean
   },
 
   data () {
@@ -84,14 +85,14 @@ export default {
 
   methods: {
     dataHandler () {
-      const { data, colorList, setTipPosition, percentDigit } = this
+      const { data, colorList, setTipPosition, percentDigit, innerPercent } = this
       let sum = 0
       data.forEach(({ value }) => { sum += value })
       this.dataList = data.map(({ label, value, percent }, index) => {
         const percentNum = `${parseFloat((value / sum * 100).toFixed(percentDigit))}%`
         return {
           percent: percentNum,
-          percentText: percent == null ? percentNum : percent,
+          percentText: percent !== null && !innerPercent ? percent : percentNum,
           label,
           value,
           color: colorList[index],
