@@ -248,7 +248,7 @@ $border-color: #ccc;
       background-clip: padding-box;
 
       &:not(:last-child) {
-        border-right: 1px solid rgba(255, 255, 255, 0.01);
+        box-shadow: 1px 0 0 2px #fff;
       }
     }
   }

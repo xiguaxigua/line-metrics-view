@@ -15,7 +15,7 @@ export default {
       lineData: [
         {
           label: 'First',
-          value: 1
+          value: 11
         },
         {
           label: 'Second',
