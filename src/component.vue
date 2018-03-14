@@ -243,11 +243,12 @@ $border-color: #ccc;
     height: 30px;
     width: 100%;
     display: flex;
-    border: 1px solid transparent;
 
     .line-metrics-view__line-item {
+      background-clip: padding-box;
+
       &:not(:last-child) {
-        border-right: 1px solid rgba(0, 0, 0, 0);
+        border-right: 1px solid rgba(255, 255, 255, 0.01);
       }
     }
   }
