@@ -61,6 +61,10 @@ export default {
     lineGap: {
       type: Number,
       default: 2
+    },
+    percentDigit: {
+      type: Number,
+      default: 1
     }
   },
 
@@ -80,13 +84,14 @@ export default {
 
   methods: {
     dataHandler () {
-      const { data, colorList, setTipPosition } = this
+      const { data, colorList, setTipPosition, percentDigit } = this
       let sum = 0
       data.forEach(({ value }) => { sum += value })
-      this.dataList = data.map(({ label, value }, index) => {
-        const percent = `${parseFloat((value / sum * 100).toFixed(2))}%`
+      this.dataList = data.map(({ label, value, percent }, index) => {
+        const percentNum = `${parseFloat((value / sum * 100).toFixed(percentDigit))}%`
         return {
-          percent: percent,
+          percent: percentNum,
+          percentText: percent == null ? percentNum : percent,
           label,
           value,
           color: colorList[index],
@@ -237,11 +242,11 @@ $border-color: #ccc;
     height: 30px;
     width: 100%;
     display: flex;
-    border: 1px solid $border-color;
+    border: 1px solid transparent;
 
     .line-metrics-view__line-item {
       &:not(:last-child) {
-        border-right: 1px solid $border-color;
+        border-right: 1px solid rgba(0, 0, 0, 0);
       }
     }
   }

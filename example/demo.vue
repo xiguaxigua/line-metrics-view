@@ -1,6 +1,6 @@
 <template>
   <div class="page-demo">
-    <comp :data="lineData" ref="com"></comp>
+    <comp :data="lineData" :percent-digit="6" ref="com"></comp>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
         },
         {
           label: 'Forth',
-          value: 1111
+          value: 11
         }
       ]
     }
